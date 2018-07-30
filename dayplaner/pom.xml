@@ -7,6 +7,7 @@
   <groupId>com.nadtsalov.dayplaner</groupId>
   <artifactId>dayplaner</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>dayplaner</name>
   <!-- FIXME change it to the project's website -->
@@ -42,10 +43,6 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.7.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
