@@ -13,8 +13,13 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void testGui()
     {
-        assertTrue( true );
+        new MainGui().startApp();
+    }
+
+    @Test
+    public void testA(){
+        new EnterTask().openEnterArea();
     }
 }
