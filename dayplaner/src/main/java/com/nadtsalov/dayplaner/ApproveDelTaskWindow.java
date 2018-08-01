@@ -25,7 +25,7 @@ public class ApproveDelTaskWindow {
         yesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGui.leftPanel.remove(comp);
+                MainGui.getLeftPanel().remove(comp);
                 frame.dispose();
             }
         });
@@ -43,6 +43,7 @@ public class ApproveDelTaskWindow {
 
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         frame.getContentPane().add(labelPanel);
+        frame.setLocation(MouseInfo.getPointerInfo().getLocation());
         frame.setSize(300, 100);
         frame.setVisible(true);
     }

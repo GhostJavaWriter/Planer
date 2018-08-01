@@ -7,8 +7,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class EnterTask {
-    JFrame newTaskFrame;
-    JTextArea newTask;
+    private JFrame newTaskFrame;
+    private JTextArea newTask;
+    private JLabel task;
 
     public void openEnterArea(){
 
@@ -23,19 +24,16 @@ public class EnterTask {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                JLabel task = new JLabel(newTask.getText());
-                int indexComp = MainGui.leftPanel.getComponentZOrder(task);
+                task = new JLabel(newTask.getText());
                 task.addMouseListener(new ClickOnTaskListener(task));
                 task.setBackground(Color.yellow);
                 task.setOpaque(true);
                 task.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
-
                 Font font = new Font("Verdana", Font.BOLD, 20);
                 task.setFont(font);
-
                 task.setPreferredSize(new Dimension(550, 50));
-                MainGui.leftPanel.add(task);
-
+                MainGui.getLeftPanel().add(task);
+                MainGui.taskList.add(task);
                 newTaskFrame.dispose();
             }
         });
@@ -52,6 +50,7 @@ public class EnterTask {
 
         newTaskFrame.getContentPane().add(BorderLayout.SOUTH, buttonsPanel);
         newTaskFrame.getContentPane().add(panel);
+        newTaskFrame.setLocation(650, 500);
         newTaskFrame.setSize(600, 200);
         newTaskFrame.setVisible(true);
 

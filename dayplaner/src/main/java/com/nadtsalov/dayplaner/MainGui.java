@@ -1,10 +1,6 @@
 package com.nadtsalov.dayplaner;
 
-import javax.sound.midi.ControllerEventListener;
-import javax.sound.midi.ShortMessage;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,14 +10,19 @@ import java.util.ArrayList;
 
 public class MainGui implements ContainerListener{
 
-    JFrame frame;
-    static JPanel leftPanel;
-    JPanel southPanel;
-    JScrollPane scrollPane;
+    private JFrame frame;
+    private static JPanel leftPanel;
+    private JPanel southPanel;
+    private JScrollPane scrollPane;
+    public static ArrayList<JLabel> taskList;
+
+    public static JPanel getLeftPanel() {
+        return leftPanel;
+    }
 
     public void startApp(){
         frame = new JFrame("To Do List");
-
+        taskList = new ArrayList<JLabel>();
         JButton addTaskButton = new JButton("Add Task");
         addTaskButton.addActionListener(new ActionListener() {
             @Override
@@ -38,9 +39,21 @@ public class MainGui implements ContainerListener{
         leftPanel.addContainerListener(this);
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuFile = new JMenu("File");
+        menuBar.add(menuFile);
+        JMenuItem menuOpen = new JMenuItem("Open task list");
+        menuOpen.addActionListener(new OpenButListener());
+        menuFile.add(menuOpen);
+        JMenuItem menuSave = new JMenuItem("Save task list");
+        menuSave.addActionListener(new SaveButListener());
+        menuFile.add(menuSave);
+
+        frame.setJMenuBar(menuBar);
         frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
         frame.getContentPane().add(scrollPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(600, 200);
         frame.setSize(600, 700);
         frame.setVisible(true);
     }
