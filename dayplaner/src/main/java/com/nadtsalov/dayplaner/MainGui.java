@@ -60,6 +60,7 @@ public class MainGui implements ContainerListener{
 
     @Override
     public void componentAdded(ContainerEvent e) {
+        scrollPane.repaint();
         scrollPane.revalidate();
     }
 

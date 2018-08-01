@@ -10,8 +10,7 @@ public class SaveButListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JFileChooser saveList = new JFileChooser();
-        //saveList.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        File file = new File("MyTaskList.txt");
+        File file = new File("MyTaskList.ser");
         saveList.setSelectedFile(file);
         int ret = saveList.showSaveDialog(null);
         if (ret == JFileChooser.APPROVE_OPTION) {
