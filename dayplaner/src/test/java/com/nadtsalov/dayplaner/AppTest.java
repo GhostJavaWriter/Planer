@@ -18,8 +18,4 @@ public class AppTest
         new MainGui().startApp();
     }
 
-    @Test
-    public void testA(){
-        new EnterTask().openEnterArea();
-    }
 }

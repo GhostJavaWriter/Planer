@@ -23,11 +23,29 @@ public class EnterTask {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                MainGui.leftPanel.add(new JLabel(newTask.getText()));
+                JLabel task = new JLabel(newTask.getText());
+                int indexComp = MainGui.leftPanel.getComponentZOrder(task);
+                task.addMouseListener(new ClickOnTaskListener(task));
+                task.setBackground(Color.yellow);
+                task.setOpaque(true);
+                task.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+
+                Font font = new Font("Verdana", Font.BOLD, 20);
+                task.setFont(font);
+
+                task.setPreferredSize(new Dimension(550, 50));
+                MainGui.leftPanel.add(task);
+
                 newTaskFrame.dispose();
             }
         });
         JButton cancel = new JButton("Cancel");
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newTaskFrame.dispose();
+            }
+        });
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.add(ok);
         buttonsPanel.add(cancel);

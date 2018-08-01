@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
 import java.util.ArrayList;
@@ -21,21 +23,25 @@ public class MainGui implements ContainerListener{
         frame = new JFrame("To Do List");
 
         JButton addTaskButton = new JButton("Add Task");
-        addTaskButton.addActionListener(new AddButtonListener());
-        JButton delTaskButton = new JButton("Delete Task");
-        delTaskButton.addActionListener(new DelButtonListener());
+        addTaskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EnterTask().openEnterArea();
+            }
+        });
+
         southPanel = new JPanel();
         southPanel.add(addTaskButton);
-        southPanel.add(delTaskButton);
 
         leftPanel = new JPanel();
         scrollPane = new JScrollPane(leftPanel);
         leftPanel.addContainerListener(this);
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
         frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
         frame.getContentPane().add(scrollPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 800);
+        frame.setSize(600, 700);
         frame.setVisible(true);
     }
 
@@ -46,6 +52,7 @@ public class MainGui implements ContainerListener{
 
     @Override
     public void componentRemoved(ContainerEvent e) {
-
+        scrollPane.repaint();
+        scrollPane.revalidate();
     }
 }
