@@ -16,13 +16,15 @@ public class OpenTask {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
             ArrayList<JLabel> taskList = (ArrayList<JLabel>) inputStream.readObject();
 
+            MainGui.getLeftPanel().removeAll();
             for (JLabel taskOut: taskList){
                 MainGui.getLeftPanel().add(taskOut);
+                taskOut.addMouseListener(new ClickOnTaskListener(taskOut));
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
