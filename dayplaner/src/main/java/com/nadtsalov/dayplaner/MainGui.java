@@ -20,7 +20,7 @@ public class MainGui implements ContainerListener{
         return leftPanel;
     }
 
-    public void startApp(){
+    public void startApp() {
         frame = new JFrame("To Do List");
         taskList = new ArrayList<JLabel>();
         JButton addTaskButton = new JButton("Add Task");
@@ -49,61 +49,11 @@ public class MainGui implements ContainerListener{
         frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
         frame.getContentPane().add(scrollPane);
         new Config().openConfig();
-
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setLocation(600, 200);
         frame.setSize(600, 700);
         frame.setVisible(true);
-        frame.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-                String configFilename =
-                        System.getProperty("user.home") + File.separator + "planerConfig.properties";
-                Properties props = new Properties();
-                try {
-                    FileInputStream input = new FileInputStream(configFilename);
-                    props.load(input);
-                    input.close();
-                } catch(Exception ignore) { }
-                String dir = props.getProperty("dir");
-                if (dir != null){
-                    File file = new File(dir);
-                    new SaveTask().saveList(file);
-                }
-                else new SaveButListener().actionPerformed(null);
-                System.exit(0);
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
-            }
-        });
+        frame.addWindowListener(new CloseWindowListener());
     }
 
     @Override

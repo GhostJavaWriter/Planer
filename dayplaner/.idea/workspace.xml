@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffa3480e-0b78-4e93-a429-7481d03bd732" name="Default Changelist" comment="">
+    <list default="true" id="ffa3480e-0b78-4e93-a429-7481d03bd732" name="Default Changelist" comment="fix bugs and add config">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/ApproveDelTaskWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/ApproveDelTaskWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/MainGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/OpenTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/OpenTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveButListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveButListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/MainGui$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/MainGui$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/MainGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/MainGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/OpenTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/OpenTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/SaveButListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/SaveButListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/ApproveDelTaskWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/SaveTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nadtsalov/dayplaner/SaveTask.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +30,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="25" />
+          <entry key="java" value="26" />
           <entry key="properties" value="2" />
           <entry key="txt" value="1" />
           <entry key="xml" value="4" />
@@ -42,7 +38,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="25" />
+          <entry key="JAVA" value="26" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="4" />
@@ -50,15 +46,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6828" />
-          <entry key="txt" value="62" />
+          <entry key="java" value="6897" />
+          <entry key="txt" value="87" />
           <entry key="xml" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6828" />
-          <entry key="PLAIN_TEXT" value="62" />
+          <entry key="JAVA" value="6897" />
+          <entry key="PLAIN_TEXT" value="87" />
           <entry key="XML" value="46" />
         </counts>
       </usages-collector>
@@ -69,18 +65,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/MainGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="74" column="43" lean-forward="true" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+            <state relative-caret-position="511">
+              <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#525#526#0" expanded="true" />
                 <element signature="e#557#558#0" expanded="true" />
-                <element signature="method#windowOpened#0;class#1895:2599" />
-                <element signature="method#windowClosed#0;class#1895:2599" />
-                <element signature="method#windowIconified#0;class#1895:2599" />
-                <element signature="method#windowDeiconified#0;class#1895:2599" />
-                <element signature="method#windowActivated#0;class#1895:2599" />
-                <element signature="method#windowDeactivated#0;class#1895:2599" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/CloseWindowListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="580">
+              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -228,6 +230,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/SaveButListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/CloseWindowListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/MainGui.java" />
       </list>
     </option>
@@ -294,7 +297,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533301342509" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533301716670" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -462,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533278734364</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix bugs and add config">
+      <created>1533301429781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533301429781</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -483,10 +493,9 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -549,7 +558,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="app is working" />
     <MESSAGE value="add listener for open list tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="add listener for open list tasks" />
+    <MESSAGE value="fix bugs and add config" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs and add config" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -677,20 +687,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/CloseWindowListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nadtsalov/dayplaner/MainGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="74" column="43" lean-forward="true" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+        <state relative-caret-position="511">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#525#526#0" expanded="true" />
             <element signature="e#557#558#0" expanded="true" />
-            <element signature="method#windowOpened#0;class#1895:2599" />
-            <element signature="method#windowClosed#0;class#1895:2599" />
-            <element signature="method#windowIconified#0;class#1895:2599" />
-            <element signature="method#windowDeiconified#0;class#1895:2599" />
-            <element signature="method#windowActivated#0;class#1895:2599" />
-            <element signature="method#windowDeactivated#0;class#1895:2599" />
           </folding>
         </state>
       </provider>
