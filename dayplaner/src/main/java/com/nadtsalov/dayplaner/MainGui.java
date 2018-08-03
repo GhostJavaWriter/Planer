@@ -2,11 +2,11 @@ package com.nadtsalov.dayplaner;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ContainerEvent;
-import java.awt.event.ContainerListener;
+import java.awt.event.*;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class MainGui implements ContainerListener{
 
@@ -30,15 +30,12 @@ public class MainGui implements ContainerListener{
                 new EnterTask().openEnterArea();
             }
         });
-
         southPanel = new JPanel();
         southPanel.add(addTaskButton);
-
         leftPanel = new JPanel();
         scrollPane = new JScrollPane(leftPanel);
         leftPanel.addContainerListener(this);
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-
         JMenuBar menuBar = new JMenuBar();
         JMenu menuFile = new JMenu("File");
         menuBar.add(menuFile);
@@ -48,14 +45,65 @@ public class MainGui implements ContainerListener{
         JMenuItem menuSave = new JMenuItem("Save task list");
         menuSave.addActionListener(new SaveButListener());
         menuFile.add(menuSave);
-
         frame.setJMenuBar(menuBar);
         frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
         frame.getContentPane().add(scrollPane);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        new Config().openConfig();
+
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setLocation(600, 200);
         frame.setSize(600, 700);
         frame.setVisible(true);
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                String configFilename =
+                        System.getProperty("user.home") + File.separator + "planerConfig.properties";
+                Properties props = new Properties();
+                try {
+                    FileInputStream input = new FileInputStream(configFilename);
+                    props.load(input);
+                    input.close();
+                } catch(Exception ignore) { }
+                String dir = props.getProperty("dir");
+                if (dir != null){
+                    File file = new File(dir);
+                    new SaveTask().saveList(file);
+                }
+                else new SaveButListener().actionPerformed(null);
+                System.exit(0);
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
     }
 
     @Override

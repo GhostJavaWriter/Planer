@@ -26,6 +26,7 @@ public class ApproveDelTaskWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainGui.getLeftPanel().remove(comp);
+                MainGui.taskList.remove(comp);
                 frame.dispose();
             }
         });

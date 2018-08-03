@@ -12,20 +12,19 @@ public class OpenTask {
 
     public void openTask(File file){
 
+        MainGui.getLeftPanel().removeAll();
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
             ArrayList<JLabel> taskList = (ArrayList<JLabel>) inputStream.readObject();
 
-            MainGui.getLeftPanel().removeAll();
             for (JLabel taskOut: taskList){
                 MainGui.getLeftPanel().add(taskOut);
+                MainGui.taskList.add(taskOut);
                 taskOut.addMouseListener(new ClickOnTaskListener(taskOut));
             }
-
+            inputStream.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignore) { }
     }
 }

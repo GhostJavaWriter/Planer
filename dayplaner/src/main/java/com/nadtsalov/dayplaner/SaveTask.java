@@ -5,6 +5,8 @@ import java.io.*;
 public class SaveTask {
 
     public void saveList(File fileName){
+
+        new Config().saveConfig(fileName);
         try {
             FileOutputStream outputStream = new FileOutputStream(fileName);
             ObjectOutputStream os = new ObjectOutputStream(outputStream);
