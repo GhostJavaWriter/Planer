@@ -1,7 +1,6 @@
 package com.nadtsalov.dayplaner;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

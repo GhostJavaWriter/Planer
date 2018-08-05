@@ -1,9 +1,6 @@
 package com.nadtsalov.dayplaner;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,6 +19,7 @@ public class ClickOnTaskListener implements MouseListener {
             else comp.setBackground(Color.green);
         }
         else if (e.getButton() == MouseEvent.BUTTON3) new ApproveDelTaskWindow(comp).openApproveWindow();
+
     }
 
     @Override

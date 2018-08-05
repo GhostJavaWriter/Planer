@@ -8,14 +8,23 @@ import java.awt.event.ActionListener;
 public class ApproveDelTaskWindow {
 
     private Component comp;
+    private Boolean all;
+    private JFrame frame;
 
     public ApproveDelTaskWindow(Component comp) {
         this.comp = comp;
+        this.all = false;
+    }
+
+    public ApproveDelTaskWindow() {
+        this.all = true;
     }
 
     public void openApproveWindow (){
 
-        final JFrame frame = new JFrame("Delete this task?");
+        String thisCase = "Delete this task";;
+        if (all) thisCase = "Clear this list";
+        frame = new JFrame(thisCase);
         JPanel labelPanel = new JPanel();
         JPanel buttonPanel = new JPanel();
         JLabel label = new JLabel("Are u sure?");
@@ -25,8 +34,13 @@ public class ApproveDelTaskWindow {
         yesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGui.getLeftPanel().remove(comp);
-                MainGui.taskList.remove(comp);
+                if (!all) {
+                    MainGui.getLeftPanel().remove(comp);
+                    MainGui.taskList.remove(comp);
+                }else{
+                    MainGui.getLeftPanel().removeAll();
+                    MainGui.taskList.clear();
+                }
                 frame.dispose();
             }
         });
@@ -37,14 +51,12 @@ public class ApproveDelTaskWindow {
                 frame.dispose();
             }
         });
-
         labelPanel.add(label);
         buttonPanel.add(yesButton);
         buttonPanel.add(noButton);
-
         frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);
         frame.getContentPane().add(labelPanel);
-        frame.setLocation(MouseInfo.getPointerInfo().getLocation());
+        frame.setLocation(MainGui.getFrame().getX() + 50, MainGui.getFrame().getY() + 150);
         frame.setSize(300, 100);
         frame.setVisible(true);
     }

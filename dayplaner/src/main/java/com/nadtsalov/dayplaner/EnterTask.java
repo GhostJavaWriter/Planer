@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class EnterTask {
     private JFrame newTaskFrame;
@@ -15,7 +14,7 @@ public class EnterTask {
 
         newTaskFrame = new JFrame("Please enter new task");
 
-        newTask = new JTextArea(9, 52);
+        newTask = new JTextArea(9, 50);
         JPanel panel = new JPanel();
         panel.add(newTask);
 
@@ -26,10 +25,7 @@ public class EnterTask {
 
                 task = new JLabel(newTask.getText());
                 task.addMouseListener(new ClickOnTaskListener(task));
-                task.setBackground(Color.yellow);
-                task.setOpaque(true);
-                task.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
-                Font font = new Font("Verdana", Font.BOLD, 20);
+                Font font = new Font("Sans Serif", Font.ROMAN_BASELINE, 18);
                 task.setFont(font);
                 task.setPreferredSize(new Dimension(550, 50));
                 MainGui.getLeftPanel().add(task);
@@ -50,7 +46,7 @@ public class EnterTask {
 
         newTaskFrame.getContentPane().add(BorderLayout.SOUTH, buttonsPanel);
         newTaskFrame.getContentPane().add(panel);
-        newTaskFrame.setLocation(650, 500);
+        newTaskFrame.setLocation(MainGui.getFrame().getX() + 50, MainGui.getFrame().getY() + 150);
         newTaskFrame.setSize(600, 200);
         newTaskFrame.setVisible(true);
 

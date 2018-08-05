@@ -3,14 +3,11 @@ package com.nadtsalov.dayplaner;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class MainGui implements ContainerListener{
 
-    private JFrame frame;
+    private static JFrame frame;
     private static JPanel leftPanel;
     private JPanel southPanel;
     private JScrollPane scrollPane;
@@ -21,17 +18,25 @@ public class MainGui implements ContainerListener{
     }
 
     public void startApp() {
-        frame = new JFrame("To Do List");
-        taskList = new ArrayList<JLabel>();
-        JButton addTaskButton = new JButton("Add Task");
+        frame = new JFrame("To Do List / ver. 1.0");
+        taskList = new ArrayList<>();
+        JButton addTaskButton = new JButton("Add new task");
         addTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new EnterTask().openEnterArea();
             }
         });
+        JButton clearList = new JButton("Clear list");
+        clearList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ApproveDelTaskWindow().openApproveWindow();
+            }
+        });
         southPanel = new JPanel();
         southPanel.add(addTaskButton);
+        southPanel.add(clearList);
         leftPanel = new JPanel();
         scrollPane = new JScrollPane(leftPanel);
         leftPanel.addContainerListener(this);
@@ -54,6 +59,10 @@ public class MainGui implements ContainerListener{
         frame.setSize(600, 700);
         frame.setVisible(true);
         frame.addWindowListener(new CloseWindowListener());
+    }
+
+    public static JFrame getFrame() {
+        return frame;
     }
 
     @Override
