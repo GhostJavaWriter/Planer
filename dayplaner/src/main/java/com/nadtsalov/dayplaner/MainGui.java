@@ -18,8 +18,11 @@ public class MainGui implements ContainerListener{
     }
 
     public void startApp() {
+        //Main frame
         frame = new JFrame("To Do List / ver. 1.0");
+        //Array list for save tasks
         taskList = new ArrayList<>();
+        //Add button
         JButton addTaskButton = new JButton("Add new task");
         addTaskButton.addActionListener(new ActionListener() {
             @Override
@@ -27,32 +30,53 @@ public class MainGui implements ContainerListener{
                 new EnterTask().openEnterArea();
             }
         });
-        JButton clearList = new JButton("Clear list");
-        clearList.addActionListener(new ActionListener() {
+        addTaskButton.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == 10) new EnterTask().openEnterArea();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+        //buttons panel
+        southPanel = new JPanel();
+        southPanel.add(addTaskButton);
+        //main panel
+        leftPanel = new JPanel();
+        scrollPane = new JScrollPane(leftPanel);
+        leftPanel.addContainerListener(this);
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+        //menu bar
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuFile = new JMenu("File");
+        menuBar.add(menuFile);
+        JMenuItem menuOpen = new JMenuItem("Open");
+        JMenuItem menuClear = new JMenuItem("Clear");
+        JMenuItem menuSave = new JMenuItem("Save");
+        menuOpen.addActionListener(new OpenButListener());
+        menuSave.addActionListener(new SaveButListener());
+        menuClear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ApproveDelTaskWindow().openApproveWindow();
             }
         });
-        southPanel = new JPanel();
-        southPanel.add(addTaskButton);
-        southPanel.add(clearList);
-        leftPanel = new JPanel();
-        scrollPane = new JScrollPane(leftPanel);
-        leftPanel.addContainerListener(this);
-        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menuFile = new JMenu("File");
-        menuBar.add(menuFile);
-        JMenuItem menuOpen = new JMenuItem("Open task list");
-        menuOpen.addActionListener(new OpenButListener());
         menuFile.add(menuOpen);
-        JMenuItem menuSave = new JMenuItem("Save task list");
-        menuSave.addActionListener(new SaveButListener());
         menuFile.add(menuSave);
+        menuFile.add(menuClear);
+        //set-up the main frame
         frame.setJMenuBar(menuBar);
         frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
         frame.getContentPane().add(scrollPane);
+        //load task list
         new Config().openConfig();
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setLocation(600, 200);

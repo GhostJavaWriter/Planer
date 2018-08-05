@@ -20,7 +20,7 @@ public class OpenTask {
             for (JLabel taskOut: taskList){
                 MainGui.getLeftPanel().add(taskOut);
                 MainGui.taskList.add(taskOut);
-                taskOut.addMouseListener(new ClickOnTaskListener(taskOut));
+                taskOut.addMouseListener(new ClickOnTaskListener());
             }
             inputStream.close();
         } catch (ClassNotFoundException e) {

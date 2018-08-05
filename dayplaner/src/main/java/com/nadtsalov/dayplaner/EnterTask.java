@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class EnterTask {
     private JFrame newTaskFrame;
@@ -17,6 +18,7 @@ public class EnterTask {
         newTask = new JTextArea(9, 50);
         JPanel panel = new JPanel();
         panel.add(newTask);
+        final ImageIcon iconDo = new ImageIcon(this.getClass().getResource("/iconDo.png"));
 
         JButton ok = new JButton("Ok");
         ok.addActionListener(new ActionListener() {
@@ -24,10 +26,10 @@ public class EnterTask {
             public void actionPerformed(ActionEvent e) {
 
                 task = new JLabel(newTask.getText());
-                task.addMouseListener(new ClickOnTaskListener(task));
+                task.addMouseListener(new ClickOnTaskListener());
                 Font font = new Font("Sans Serif", Font.ROMAN_BASELINE, 18);
                 task.setFont(font);
-                task.setPreferredSize(new Dimension(550, 50));
+                task.setIcon(iconDo);
                 MainGui.getLeftPanel().add(task);
                 MainGui.taskList.add(task);
                 newTaskFrame.dispose();

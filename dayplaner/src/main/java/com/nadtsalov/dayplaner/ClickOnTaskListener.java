@@ -1,30 +1,34 @@
 package com.nadtsalov.dayplaner;
 
-import java.awt.*;
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileReader;
+import java.io.InputStream;
 
 public class ClickOnTaskListener implements MouseListener {
 
-    private Component comp;
-
-    public ClickOnTaskListener(Component comp) {
-        this.comp = comp;
-    }
+    int clickCount;
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getButton() == MouseEvent.BUTTON1) {
-            if (comp.getBackground() == Color.green) comp.setBackground(Color.yellow);
-            else comp.setBackground(Color.green);
-        }
-        else if (e.getButton() == MouseEvent.BUTTON3) new ApproveDelTaskWindow(comp).openApproveWindow();
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
 
+        ImageIcon iconDo = new ImageIcon(this.getClass().getResource("/iconDo.png"));
+        ImageIcon iconDone = new ImageIcon(this.getClass().getResource("/iconDone.png"));
+
+        if (e.getButton() == MouseEvent.BUTTON1) {
+            clickCount++;
+            JLabel label = (JLabel) e.getComponent();
+            if (clickCount % 2.0 > 0) label.setIcon(iconDo);
+            else label.setIcon(iconDone);
+        }
+
+        else if (e.getButton() == MouseEvent.BUTTON3) new ApproveDelTaskWindow(e.getComponent()).openApproveWindow();
     }
 
     @Override
