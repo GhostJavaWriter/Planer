@@ -1,6 +1,7 @@
 package com.nadtsalov.dayplaner;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class OpenTask {
-
 
     public void openTask(File file){
 

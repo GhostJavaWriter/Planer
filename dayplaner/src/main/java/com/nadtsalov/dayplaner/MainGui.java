@@ -18,32 +18,18 @@ public class MainGui implements ContainerListener{
     }
 
     public void startApp() {
+
         //Main frame
         frame = new JFrame("To Do List / ver. 1.0");
         //Array list for save tasks
         taskList = new ArrayList<>();
         //Add button
-        JButton addTaskButton = new JButton("Add new task");
+        JButton addTaskButton = new JButton("NEW TASK");
         addTaskButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new EnterTask().openEnterArea();
-            }
-        });
-        addTaskButton.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == 10) new EnterTask().openEnterArea();
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
+                new Task().addTask();
+                new Sound().makeSound();
             }
         });
         //buttons panel
@@ -54,6 +40,7 @@ public class MainGui implements ContainerListener{
         scrollPane = new JScrollPane(leftPanel);
         leftPanel.addContainerListener(this);
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         //menu bar
         JMenuBar menuBar = new JMenuBar();
         JMenu menuFile = new JMenu("File");
